@@ -18,40 +18,39 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let dados of lista">
- <!--   
-      <ion-item>
-        <ion-avatar item-start>
-         <img src="{{dados.foto}}">
-        </ion-avatar>
-        <h2>{{dados.titulo}}</h2>
-        <p>{{dados.descricao}}</p>
-      </ion-item>
-    
-     <img src="img/advance-card-bttf.png"> 
-    
-      <ion-card-content>
-        <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-      </ion-card-content>
-    -->  
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="{{dados.foto}}">
-      </ion-avatar>
-      <h3 class="feed_title">{{dados.titulo}}</h3>
-      <p class="feed_date">{{ dados.categoria }}</p>
-     
-      <button ion-button outline item-end icon-left color="danger" small >
-        <ion-icon name="star"></ion-icon>
-        {{dados.percentual_cliente}}%
-      </button> 
-   
-   </ion-item>
 
-    <ion-card-content>
-   
-    </ion-card-content> 
- 
-    </ion-card>
+
+    <ion-list *ngFor="let dados of lista">
+        <ion-item-sliding>
+          <ion-item>
+            <ion-avatar item-start>
+                <img src="{{dados.foto}}">
+            </ion-avatar>
+            <h3 class="feed_title">{{dados.titulo}}</h3>
+            <p class="feed_date">{{ dados.categoria }}</p>
+            <button ion-button outline item-end icon-left color="danger" small >
+                <ion-icon name="star"></ion-icon>
+                {{dados.percentual_cliente}}%
+             </button> 
+          </ion-item>
+          <ion-item-options side="left">
+            <button ion-button color="primary" (click)="ver(dados)">
+              <ion-icon name="eye"></ion-icon>
+              Ver
+            </button>
+            <button ion-button color="secondary" (click)="goCall(dados.telefone)">
+              <ion-icon name="call"></ion-icon>
+              Ligar
+            </button>
+          </ion-item-options>
+          <ion-item-options side="right">
+            <button ion-button color="laranja" (click)="local(dados)">
+              <ion-icon name="pin"></ion-icon>
+              Local
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+  
 </ion-content>
 

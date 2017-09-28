@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="padrao">
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button (click)=" goBack()">
+            <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-title>Estabelecimento</ion-title>
+      <ion-buttons end>
+        <!--
+          <button ion-button icon-only>
+            <ion-icon name="search"></ion-icon>
+          </button>
+        -->
+      </ion-buttons>
+    </ion-navbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-content class="cards-bg">
+
+    <ion-card>
+
+      <img src="{{dados.foto}}">
+
+      <ion-card-content>
+        <ion-card-title>
+          {{dados.titulo}}
+        </ion-card-title>
+        <p>
+          {{dados.descricao}}
+        </p>
+      </ion-card-content>
+
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="danger" icon-start>
+                  <ion-icon name='call'></ion-icon>
+                   {{dados.telefone}}
+                </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button outline small color="laranja" icon-start>
+                  <ion-icon name='star'></ion-icon>
+                  {{dados.percentual_cliente}}%
+                </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+  </ion-content>

@@ -18,6 +18,12 @@ import { FeedPage } from "../pages/feed/feed";
 import { GenProvider } from '../providers/gen/gen';
 import { EstabelecimentoPageModule } from '../pages/estabelecimento/estabelecimento.module';
 import { MapaPage } from '../pages/mapa/mapa';
+import { ModalEstabelecimentoPage } from '../pages/modal-estabelecimento/modal-estabelecimento';
+import { ModalLocalPage } from '../pages/modal-local/modal-local';
+import { Geolocation } from '@ionic-native/geolocation';
+import { CallNumber } from '@ionic-native/call-number';
+
+
 
 @NgModule({
   declarations: [
@@ -27,7 +33,9 @@ import { MapaPage } from '../pages/mapa/mapa';
     HomePage,
     TabsPage,
     FeedPage,
-    MapaPage
+    MapaPage,
+    ModalEstabelecimentoPage,
+    ModalLocalPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,7 @@ import { MapaPage } from '../pages/mapa/mapa';
     IntroPageModule,
     HttpModule,
     EstabelecimentoPageModule
-  
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,14 +55,18 @@ import { MapaPage } from '../pages/mapa/mapa';
     HomePage,
     TabsPage,
     FeedPage,
-    MapaPage
+    MapaPage,
+    ModalEstabelecimentoPage,
+    ModalLocalPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CallNumber,
+    Geolocation,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     GenProvider
-   //  MoovieProvider
+
   ]
 })
-export class AppModule {}
+export class AppModule { }
